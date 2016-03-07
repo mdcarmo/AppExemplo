@@ -1,0 +1,53 @@
+﻿@model AppExample.Mvc.ViewModels.LoginViewModel
+@{
+	ViewBag.Title = "Login";
+}
+<div class="row">
+	<div class="col-md-12">
+		<section id="loginForm">
+			@using (Html.BeginForm())
+			{
+				<div class="form-horizontal">
+					@Html.AntiForgeryToken()
+					<h4>Entre com seus dados e gerencie seus contatos!</h4>
+
+					@if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+					{
+						<div class="alert alert-dismissible alert-danger">
+							<button type="button" class="close" data-dismiss="alert"></button>
+							<strong>Houve erros em sua solicitação !</strong>
+							@Html.ValidationSummary()
+						</div>
+					}
+
+					<div class="form-group">
+						@Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+						<div class="col-md-10">
+							@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+							@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+						<div class="col-md-10">
+							@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+							@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<input type="submit" value="Entrar" class="btn btn-info" />
+						</div>
+					</div>
+					<p>
+						Esqueceu a senha? @Html.ActionLink("Clique Aqui!", "RetrivePassword", "Authentication")
+					</p>
+				</div>
+			}
+		</section>
+	</div>
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
+

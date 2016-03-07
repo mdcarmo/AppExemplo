@@ -22,7 +22,7 @@ namespace AppExample.Service
 			if (userBD == null)
 				throw new DomainException("O usuário não existe");
 
-			if (userBD.Password != EncryptHelper.Encrypt(userBD.Password))
+			if (userBD.Password != EncryptHelper.Encrypt(userDto.Password))
 				throw new DomainException("Senha incorreta");
 
 			userDto.Name = userBD.Name;

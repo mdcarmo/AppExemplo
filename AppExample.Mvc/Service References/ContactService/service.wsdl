@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ContactService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AppExample.Service.Dto" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IContactService_AddContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_AddContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_UpdateContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContact" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_UpdateContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_DeleteContact_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_DeleteContact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindById_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindById" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindAll" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindByName" />
+  </wsdl:message>
+  <wsdl:message name="IContactService_FindByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindByNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IContactService">
+    <wsdl:operation name="AddContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/AddContact" message="tns:IContactService_AddContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/AddContactResponse" message="tns:IContactService_AddContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/UpdateContact" message="tns:IContactService_UpdateContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/UpdateContactResponse" message="tns:IContactService_UpdateContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/DeleteContact" message="tns:IContactService_DeleteContact_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/DeleteContactResponse" message="tns:IContactService_DeleteContact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/FindById" message="tns:IContactService_FindById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/FindByIdResponse" message="tns:IContactService_FindById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/FindAll" message="tns:IContactService_FindAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/FindAllResponse" message="tns:IContactService_FindAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IContactService/FindByName" message="tns:IContactService_FindByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IContactService/FindByNameResponse" message="tns:IContactService_FindByName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IContactService" type="tns:IContactService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddContact">
+      <soap:operation soapAction="http://tempuri.org/IContactService/AddContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContact">
+      <soap:operation soapAction="http://tempuri.org/IContactService/UpdateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://tempuri.org/IContactService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindById">
+      <soap:operation soapAction="http://tempuri.org/IContactService/FindById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindAll">
+      <soap:operation soapAction="http://tempuri.org/IContactService/FindAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindByName">
+      <soap:operation soapAction="http://tempuri.org/IContactService/FindByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ContactService">
+    <wsdl:port name="BasicHttpBinding_IContactService" binding="tns:BasicHttpBinding_IContactService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/AppExample.Service/ContactService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

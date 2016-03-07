@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AppExample.Mvc.ViewModels.ContactViewModel>
+@{
+	ViewBag.Title = "Index";
+}
+<h2>Contatos</h2>
+<p><a class="btn btn-success" href="@Url.Action("Create", "Contact")"><span class="glyphicon glyphicon-plus"></span>&nbsp;Criar novo contato</a></p>
+<table class="table table-bordered">
+	<thead>
+		
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Name)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Email)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Phone)
+			</th>
+			<th></th>
+		</tr>
+		</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Phone)
+				</td>
+				<td>
+					@Html.ActionLink("Atualizar", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Deletar", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

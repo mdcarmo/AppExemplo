@@ -28,6 +28,7 @@ namespace AppExample.Service.Domain.Entities
 		public string Name { get; protected set; }
 		public string Email { get; protected set; }
 		public string Phone { get; protected set; }
+		public DateTime DateRegister { get; protected set; }
 		#endregion
 
 		#region [ Methods ]
