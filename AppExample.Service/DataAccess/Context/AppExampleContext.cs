@@ -15,6 +15,7 @@ namespace AppExample.Service.DataAccess.Context
 		}
 
 		public DbSet<User> Users { get; set; }
+		public DbSet<Contact> Contacts { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -33,6 +34,7 @@ namespace AppExample.Service.DataAccess.Context
 				.Configure(p => p.HasMaxLength(100));
 
 			modelBuilder.Configurations.Add(new UserConfiguration());
+			modelBuilder.Configurations.Add(new ContactConfiguration());
 
 			base.OnModelCreating(modelBuilder);
 		}

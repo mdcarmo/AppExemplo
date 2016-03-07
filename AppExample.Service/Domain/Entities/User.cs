@@ -1,5 +1,6 @@
 ﻿using AppExample.Service.Domain.Exceptions;
 using System;
+using System.Text.RegularExpressions;
 
 namespace AppExample.Service.Domain.Entities
 {
@@ -15,9 +16,14 @@ namespace AppExample.Service.Domain.Entities
 		{
 			if (string.IsNullOrEmpty(name)) throw new DomainException("O nome do usuário deve ser fornecido");
 
+			if (string.IsNullOrEmpty(email)) throw new DomainException("O e-mail do usuário deve ser fornecido");
+
 			if (string.IsNullOrEmpty(password)) throw new DomainException("A senha do usuário deve ser fornecida");
 
 			if (password.Length < 5 || password.Length > 20) throw new DomainException("A senha do usuário deve ter entre 5 e 20 caracteres");
+
+			if (!Regex.IsMatch(email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
+				throw new DomainException("E-mail inválido");
 
 			UserId = Guid.NewGuid();
 			Name = name;

@@ -44,25 +44,36 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationService.cs" />
     <Compile Include="Common\EncryptHelper.cs" />
+    <Compile Include="ContactService.cs" />
+    <Compile Include="Contracts\IAuthenticationService.cs" />
+    <Compile Include="Contracts\IContactService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="DataAccess\Context\AppExampleContext.cs" />
+    <Compile Include="DataAccess\EntityConfig\ContactConfiguration.cs" />
     <Compile Include="DataAccess\EntityConfig\UserConfiguration.cs" />
+    <Compile Include="DataAccess\Repositories\ContactRepository.cs" />
     <Compile Include="DataAccess\Repositories\RepositoryBase.cs" />
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
+    <Compile Include="Domain\Entities\Contact.cs" />
     <Compile Include="Domain\Entities\User.cs" />
     <Compile Include="Domain\Exceptions\DomainException.cs" />
+    <Compile Include="Domain\Repositories\IContactRepository.cs" />
     <Compile Include="Domain\Repositories\IRepositoryBase.cs" />
     <Compile Include="Domain\Repositories\IUserRepository.cs" />
     <Compile Include="Dto\ChangePasswordDto.cs" />
+    <Compile Include="Dto\ContactDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
